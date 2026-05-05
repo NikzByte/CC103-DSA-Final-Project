@@ -108,7 +108,7 @@ void save_listings(Listing* head) {
     // traverse linked list and write each node as one line
     Listing* temp = head;
     while (temp != nullptr) {
-        file << temp->user        << "|"
+        file << temp->user        << "|" 
              << temp->status      << "|"
              << temp->id          << "|"
              << temp->name        << "|"
@@ -184,7 +184,7 @@ void create_listing(Listing*& head, Listing*& tail, string current_user) {
 
 // ============================================
 // VIEW ALL LISTINGS
-// traverses entire linked list
+// traverse entire linked list
 // ============================================
 void view_all_listings(Listing* head) {
     if (head == nullptr) {
@@ -299,7 +299,7 @@ void search_listings(Listing* head) {
 
 // ============================================
 // DELETE LISTING
-// removes a node from the linked list
+// remove a node from the linked list
 // ============================================
 void delete_listing(Listing*& head, Listing*& tail, string current_user) {
     cout << "\n\033[1;31DELETE ITEM LISTING:\033[0m" << endl;
@@ -347,8 +347,11 @@ void delete_listing(Listing*& head, Listing*& tail, string current_user) {
                 }
                 delete temp;
                 save_listings(head);
+                return;
             }
         }
+    prev = temp;
+    temp = temp->next;
     }
 }
 // ============================================
